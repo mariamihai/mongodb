@@ -7,6 +7,7 @@ import com.mongodb.client.model.ReturnDocument;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import quickstart.connect.Connection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,13 +19,11 @@ import java.util.logging.Logger;
 
 public class Application {
 
-    private static final String connectionString = "mongodb+srv://<user>:<pass>@cluster0.oebob.mongodb.net/";
-
     public static void main(String[] args) {
         Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
 
         // Create a MongoDB connection
-        try(MongoClient mongoClient = MongoClients.create(connectionString)) {
+        try(MongoClient mongoClient = Connection.getConnection()) {
             // Obtain all available databases
             useCursorForListingDatabaseStrings(mongoClient);
             transformCursor(mongoClient);
