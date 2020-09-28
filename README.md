@@ -18,3 +18,11 @@ The associated blog post is [here](https://developer.mongodb.com/quickstart/java
 The associated blog post is [here](https://developer.mongodb.com/quickstart/java-mapping-pojos).
 
 The `main` method is under `MappingPOJOs` with `Grade` and `Score` mapping the associated documents.
+
+### Aggregation pipeline
+The associated blog post is [here](https://developer.mongodb.com/quickstart/java-aggregation-pipeline).
+
+`AgreggationPipelineForZips` retrieves the 3 most populated cities in Texas, USA.
+
+`AggregationPipelineForPosts` retrieves the 3 most popular tags and their associated titles.
+
