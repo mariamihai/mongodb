@@ -1,11 +1,20 @@
 # MongoDB Related Projects
 
-## Project 1 - Java Quick Start
-Based on [Developing with MongoDB and Java](https://www.youtube.com/watch?v=bkhXHiracs8).
+## Before running
+`mongodb.uri` value in `application.properties` should be replaced with the value obtained from your cluster (_MongoDB Atlas > Cluster > Connect > Connect your application_).
 
-The associated blog post is [here](https://developer.mongodb.com/quickstart/java-setup-crud-operations).
+## Project 1 - Java Quick Start
+### Youtube / Twitch Video
+Based on [Developing with MongoDB and Java](https://www.youtube.com/watch?v=bkhXHiracs8).
 
 `quickstart.twitchclip.Application` class is based on the clip.
 
-### Before running
-`mongodb.uri` value in `application.properties` should be replaced with the value obtained for your cluster (_MongoDB Atlas > Cluster > Connect > Connect your application_).
+### CRUD operations
+The associated blog post is [here](https://developer.mongodb.com/quickstart/java-setup-crud-operations).
+
+`Create`, `Read`, `Update` and `Delete` classes can be independently run and they showcase different available operations. 
+
+### Mapping POJOs
+The associated blog post is [here](https://developer.mongodb.com/quickstart/java-mapping-pojos).
+
+The `main` method is under `MappingPOJOs` with `Grade` and `Score` mapping the associated documents.
