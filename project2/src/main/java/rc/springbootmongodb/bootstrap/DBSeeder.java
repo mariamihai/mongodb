@@ -11,7 +11,7 @@ import rc.springbootmongodb.repositories.HotelRepository;
 import java.util.Arrays;
 import java.util.Collections;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class DBSeeder implements CommandLineRunner {
 

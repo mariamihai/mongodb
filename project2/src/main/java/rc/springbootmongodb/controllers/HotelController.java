@@ -20,6 +20,15 @@ public class HotelController {
         return hotelRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Hotel findById(@PathVariable("id") String id) throws Exception {
+        return hotelRepository.findById(id).orElseThrow(Exception::new);
+    }
+
+    @GetMapping("/price/{maxPrice}")
+    public List<Hotel> getByPricePerNightLessThan(@PathVariable("maxPrice") Integer maxPrice) {
+        return hotelRepository.findByPricePerNightLessThan(maxPrice);
+    }
 
     @PostMapping
     public Hotel insert(@RequestBody Hotel hotel) {
