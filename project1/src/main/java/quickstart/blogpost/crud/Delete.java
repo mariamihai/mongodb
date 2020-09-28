@@ -7,15 +7,17 @@ import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.json.JsonWriterSettings;
-import quickstart.connect.Connection;
+import quickstart.blogpost.config.Config;
+import quickstart.blogpost.config.connect.Connection;
 
-import static quickstart.connect.Connection.PRETTY_PRINT;
+import static quickstart.blogpost.config.Config.PRETTY_PRINT;
 
 public class Delete {
 
     private static JsonWriterSettings prettyPrint = JsonWriterSettings.builder().indent(true).build();
 
     public static void main(String[] args) {
+        Config.setLoggingLevel();
         MongoClient mongoClient = Connection.getConnection();
 
         // Connecting to a specific collection

@@ -5,7 +5,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.InsertManyOptions;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import quickstart.connect.Connection;
+import quickstart.blogpost.config.Config;
+import quickstart.blogpost.config.connect.Connection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +19,7 @@ public class Create {
 
 
     public static void main(String[] args) {
+        Config.setLoggingLevel();
         MongoClient mongoClient = Connection.getConnection();
 
         // Connecting to a specific collection

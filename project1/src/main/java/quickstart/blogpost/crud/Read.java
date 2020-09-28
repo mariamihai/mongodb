@@ -7,7 +7,8 @@ import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Projections;
 import com.mongodb.client.model.Sorts;
 import org.bson.Document;
-import quickstart.connect.Connection;
+import quickstart.blogpost.config.Config;
+import quickstart.blogpost.config.connect.Connection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.function.Consumer;
 public class Read {
 
     public static void main(String[] args) {
+        Config.setLoggingLevel();
         MongoClient mongoClient = Connection.getConnection();
 
         // Connecting to a specific collection

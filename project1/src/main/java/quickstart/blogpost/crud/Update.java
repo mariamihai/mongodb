@@ -6,13 +6,15 @@ import com.mongodb.client.model.*;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import quickstart.connect.Connection;
+import quickstart.blogpost.config.Config;
+import quickstart.blogpost.config.connect.Connection;
 
-import static quickstart.connect.Connection.PRETTY_PRINT;
+import static quickstart.blogpost.config.Config.PRETTY_PRINT;
 
 public class Update {
 
     public static void main(String[] args) {
+        Config.setLoggingLevel();
         MongoClient mongoClient = Connection.getConnection();
 
         // Connecting to a specific collection

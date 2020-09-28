@@ -7,20 +7,19 @@ import com.mongodb.client.model.ReturnDocument;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import quickstart.connect.Connection;
+import quickstart.blogpost.config.Config;
+import quickstart.blogpost.config.connect.Connection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class Application {
 
     public static void main(String[] args) {
-        Logger.getLogger("org.mongodb.driver").setLevel(Level.WARNING);
+        Config.setLoggingLevel();
 
         // Create a MongoDB connection
         try(MongoClient mongoClient = Connection.getConnection()) {
