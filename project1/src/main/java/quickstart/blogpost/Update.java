@@ -6,12 +6,11 @@ import com.mongodb.client.model.*;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.bson.json.JsonWriterSettings;
 import quickstart.connect.Connection;
 
-public class Update {
+import static quickstart.connect.Connection.PRETTY_PRINT;
 
-    private static JsonWriterSettings prettyPrint = JsonWriterSettings.builder().indent(true).build();
+public class Update {
 
     public static void main(String[] args) {
         MongoClient mongoClient = Connection.getConnection();
@@ -36,7 +35,7 @@ public class Update {
         UpdateResult updateResult = gradeCollection.updateOne(filter, updateOperation);
         System.out.println("Updating the doc with {\"student_id\":10000}. Adding comment.");
         System.out.println(updateResult);
-        System.out.println(gradeCollection.find(filter).first().toJson(prettyPrint));
+        System.out.println(gradeCollection.find(filter).first().toJson(PRETTY_PRINT));
     }
 
     private static void upsert(MongoCollection<Document> gradeCollection) {
@@ -49,7 +48,7 @@ public class Update {
 
         System.out.println("\nUpsert document with {\"student_id\":10002.0, \"class_id\": 10.0} because it doesn't exist yet.");
         System.out.println(updateResult);
-        System.out.println(gradeCollection.find(filter).first().toJson(prettyPrint));
+        System.out.println(gradeCollection.find(filter).first().toJson(PRETTY_PRINT));
     }
 
     private static void updateManyDocuments(MongoCollection<Document> gradeCollection) {
@@ -74,13 +73,13 @@ public class Update {
         // returns the old version of the document before the update.
         Document oldVersion = gradeCollection.findOneAndUpdate(filter, updates);
         System.out.println("\nFindOneAndUpdate operation. Printing the old version by default:");
-        System.out.println(oldVersion.toJson(prettyPrint));
+        System.out.println(oldVersion.toJson(PRETTY_PRINT));
 
         // but I can also request the new version
         filter = Filters.eq("student_id", 10001);
         FindOneAndUpdateOptions optionAfter = new FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER);
         Document newVersion = gradeCollection.findOneAndUpdate(filter, updates, optionAfter);
         System.out.println("\nFindOneAndUpdate operation. But we can also ask for the new version of the doc:");
-        System.out.println(newVersion.toJson(prettyPrint));
+        System.out.println(newVersion.toJson(PRETTY_PRINT));
     }
 }
