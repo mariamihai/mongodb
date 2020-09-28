@@ -1,4 +1,4 @@
-package quickstart.blogpost.config;
+package quickstart.config;
 
 import org.bson.json.JsonWriterSettings;
 

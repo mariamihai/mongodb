@@ -7,8 +7,8 @@ import com.mongodb.client.model.ReturnDocument;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import quickstart.blogpost.config.Config;
-import quickstart.blogpost.config.connect.Connection;
+import quickstart.config.Config;
+import quickstart.config.connect.Connection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

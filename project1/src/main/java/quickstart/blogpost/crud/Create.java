@@ -5,8 +5,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.InsertManyOptions;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import quickstart.blogpost.config.Config;
-import quickstart.blogpost.config.connect.Connection;
+import quickstart.config.Config;
+import quickstart.config.connect.Connection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

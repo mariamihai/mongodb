@@ -1,4 +1,4 @@
-package quickstart.blogpost.config.connect;
+package quickstart.config.connect;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

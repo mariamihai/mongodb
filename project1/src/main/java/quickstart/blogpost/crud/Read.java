@@ -7,8 +7,8 @@ import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Projections;
 import com.mongodb.client.model.Sorts;
 import org.bson.Document;
-import quickstart.blogpost.config.Config;
-import quickstart.blogpost.config.connect.Connection;
+import quickstart.config.Config;
+import quickstart.config.connect.Connection;
 
 import java.util.ArrayList;
 import java.util.List;

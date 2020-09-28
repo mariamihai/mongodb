@@ -6,10 +6,10 @@ import com.mongodb.client.model.*;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import quickstart.blogpost.config.Config;
-import quickstart.blogpost.config.connect.Connection;
+import quickstart.config.Config;
+import quickstart.config.connect.Connection;
 
-import static quickstart.blogpost.config.Config.PRETTY_PRINT;
+import static quickstart.config.Config.PRETTY_PRINT;
 
 public class Update {
 
