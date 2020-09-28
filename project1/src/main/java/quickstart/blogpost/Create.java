@@ -29,6 +29,8 @@ public class Create {
         insertNewStudentWithMultipleGrades(gradeCollection);
 
         System.out.println("Number of documents after inserts is " + gradeCollection.countDocuments());
+
+        mongoClient.close();
     }
 
     private static void insertNewStudent(MongoCollection<Document> gradeCollection) {

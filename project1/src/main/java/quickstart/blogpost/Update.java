@@ -25,6 +25,8 @@ public class Update {
         updateManyDocuments(gradeCollection);
 
         findOneAndUpdate(gradeCollection);
+
+        mongoClient.close();
     }
 
     private static void updateOneDocument(MongoCollection<Document> gradeCollection) {

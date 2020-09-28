@@ -27,6 +27,8 @@ public class Read {
         readARangeOfDocuments(gradeCollection);
 
         implementPagination(gradeCollection);
+
+        mongoClient.close();
     }
 
     private static void findSingleGradeForStudent(MongoCollection<Document> gradeCollection) {
