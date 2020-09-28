@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.mongodb.client.model.Accumulators.push;
-import static com.mongodb.client.model.Accumulators.sum;
+import static com.mongodb.client.model.Accumulators.*;
 import static com.mongodb.client.model.Projections.*;
 import static com.mongodb.client.model.Projections.computed;
 import static com.mongodb.client.model.Sorts.descending;
@@ -56,7 +55,9 @@ public class AggregationPipelineForPosts {
     }
      */
     private static Bson group() {
-        return Aggregates.group("$tags", sum("count", 1L), push("titles", "$title"));
+        return Aggregates.group("$tags",
+                                sum("count", 1L),
+                                addToSet("titles", "$title"));
     }
 
     /*
