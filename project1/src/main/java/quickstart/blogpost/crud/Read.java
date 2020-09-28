@@ -1,4 +1,4 @@
-package quickstart.blogpost;
+package quickstart.blogpost.crud;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
