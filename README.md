@@ -9,6 +9,8 @@
   - [Project 2 - Hotel Application](#project-2---hotel-application)
     - [API calls](#api-calls)
       - [Get all hotels](#get-all-hotels)
+      - [Find hotel](#find-hotel)
+      - [Find hotels with price less than a specific amount](#find-hotels-with-price-less-than-a-specific-amount)
       - [Add new hotel](#add-new-hotel)
       - [Update hotel](#update-hotel)
       - [Delete hotel](#delete-hotel)
@@ -102,6 +104,96 @@ Based on a tutorial from [Romanian Coder](https://www.youtube.com/watch?v=Hu-cyy
                 "country": "Italy"
             },
             "reviews": null
+        }
+    ]
+    ```
+
+#### Find hotel
+ * __URI:__ _hotels/:id_
+ * __Method:__ _GET_
+
+ * __URL params:__ <br/>
+    * required: <br/>
+        `id=[String]`
+    * optional: - <br/>
+        
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content:
+    ```
+    {
+        "id": "5f722b898e0bbd2c863c71e7",
+        "name": "Hotel 1",
+        "pricePerNight": 130,
+        "address": {
+            "city": "Paris",
+            "country": "France"
+        },
+        "reviews": [
+            {
+                "userName": "John",
+                "rating": 9,
+                "approved": true
+            },
+            {
+                "userName": "Mary",
+                "rating": 8,
+                "approved": false
+            }
+        ]
+    }
+    ```
+
+#### Find hotels with price less than a specific amount
+ * __URI:__ _hotels/price/:maxPrice_
+ * __Method:__ _GET_
+
+ * __URL params:__ <br/>
+    * required: <br/>
+        `maxPrice=[Integer]`
+    * optional: - <br/>
+        
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content:
+    ```
+    [
+        {
+            "id": "5f722b898e0bbd2c863c71e7",
+            "name": "Hotel 1",
+            "pricePerNight": 130,
+            "address": {
+                "city": "Paris",
+                "country": "France"
+            },
+            "reviews": [
+                {
+                    "userName": "John",
+                    "rating": 9,
+                    "approved": true
+                },
+                {
+                    "userName": "Mary",
+                    "rating": 8,
+                    "approved": false
+                }
+            ]
+        },
+        {
+            "id": "5f722b898e0bbd2c863c71e8",
+            "name": "Hotel 2",
+            "pricePerNight": 90,
+            "address": {
+                "city": "London",
+                "country": "UK"
+            },
+            "reviews": [
+                {
+                    "userName": "Alex",
+                    "rating": 8,
+                    "approved": false
+                }
+            ]
         }
     ]
     ```
