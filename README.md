@@ -11,6 +11,9 @@
       - [Get all hotels](#get-all-hotels)
       - [Find hotel](#find-hotel)
       - [Find hotels with price less than a specific amount](#find-hotels-with-price-less-than-a-specific-amount)
+      - [Find all by city](#find-all-by-city)
+      - [Find all by country](#find-all-by-country)
+      - [Get recommended hotels](#get-recommended-hotels)
       - [Add new hotel](#add-new-hotel)
       - [Update hotel](#update-hotel)
       - [Delete hotel](#delete-hotel)
@@ -179,6 +182,106 @@ Based on a tutorial from [Romanian Coder](https://www.youtube.com/watch?v=Hu-cyy
                 }
             ]
         },
+        {
+            "id": "5f722b898e0bbd2c863c71e8",
+            "name": "Hotel 2",
+            "pricePerNight": 90,
+            "address": {
+                "city": "London",
+                "country": "UK"
+            },
+            "reviews": [
+                {
+                    "userName": "Alex",
+                    "rating": 8,
+                    "approved": false
+                }
+            ]
+        }
+    ]
+    ```
+
+#### Find all by city
+(Query implementation.)
+ * __URI:__ _hotels/address/city/:city_
+ * __Method:__ _GET_
+
+ * __URL params:__ <br/>
+    * required: <br/>
+        `city=[String]`
+    * optional: - <br/>
+        
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content:
+    ```
+    [
+        {
+            "id": "5f722b898e0bbd2c863c71e8",
+            "name": "Hotel 2",
+            "pricePerNight": 90,
+            "address": {
+                "city": "London",
+                "country": "UK"
+            },
+            "reviews": [
+                {
+                    "userName": "Alex",
+                    "rating": 8,
+                    "approved": false
+                }
+            ]
+        }
+    ]
+    ```
+
+#### Find all by country
+(DSL implementation.)
+ * __URI:__ _hotels/address/country/:country_
+ * __Method:__ _GET_
+
+ * __URL params:__ <br/>
+    * required: <br/>
+        `country=[String]`
+    * optional: - <br/>
+        
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content:
+    ```
+    [
+        {
+            "id": "5f722b898e0bbd2c863c71e8",
+            "name": "Hotel 2",
+            "pricePerNight": 90,
+            "address": {
+                "city": "London",
+                "country": "UK"
+            },
+            "reviews": [
+                {
+                    "userName": "Alex",
+                    "rating": 8,
+                    "approved": false
+                }
+            ]
+        }
+    ]
+    ```
+
+#### Get recommended hotels
+ * __URI:__ _hotels/recommendation_
+ * __Method:__ _GET_
+
+ * __Params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+        
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content:
+    ```
+    [
         {
             "id": "5f722b898e0bbd2c863c71e8",
             "name": "Hotel 2",
