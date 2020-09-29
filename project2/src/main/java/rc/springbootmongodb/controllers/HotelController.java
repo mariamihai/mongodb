@@ -1,9 +1,11 @@
 package rc.springbootmongodb.controllers;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import rc.springbootmongodb.domain.Hotel;
+import rc.springbootmongodb.domain.QHotel;
 import rc.springbootmongodb.repositories.HotelRepository;
 
 import java.util.List;
@@ -30,9 +32,31 @@ public class HotelController {
         return hotelRepository.findByPricePerNightLessThan(maxPrice);
     }
 
-    @GetMapping("/address/{city}")
+    @GetMapping("/address/city/{city}")
     public List<Hotel> getByCity(@PathVariable("city") String city) {
         return hotelRepository.findByCity(city);
+    }
+
+    @GetMapping("/address/country/{country}")
+    public List<Hotel> getByCountry(@PathVariable("country") String country) {
+        QHotel qHotel = new QHotel("hotel");
+
+        BooleanExpression filterByCountry = qHotel.address.country.eq(country);
+
+        return (List<Hotel>) hotelRepository.findAll(filterByCountry);
+    }
+
+    @GetMapping("/recommendation")
+    public List<Hotel> getRecommended() {
+        final int maxPrice = 100;
+        final int minRating = 7;
+
+        QHotel qHotel = new QHotel("hotel");
+
+        BooleanExpression filterByPrice = qHotel.pricePerNight.lt(maxPrice);
+        BooleanExpression filterByRating = qHotel.reviews.any().rating.gt(minRating);
+
+        return (List<Hotel>) hotelRepository.findAll(filterByPrice.and(filterByRating));
     }
 
     @PostMapping
