@@ -30,6 +30,11 @@ public class HotelController {
         return hotelRepository.findByPricePerNightLessThan(maxPrice);
     }
 
+    @GetMapping("/address/{city}")
+    public List<Hotel> getByCity(@PathVariable("city") String city) {
+        return hotelRepository.findByCity(city);
+    }
+
     @PostMapping
     public Hotel insert(@RequestBody Hotel hotel) {
         return hotelRepository.save(hotel);
